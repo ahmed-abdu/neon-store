@@ -221,6 +221,7 @@ main{
     grid-column:1 / -1;
 }
 
+/* تفاصيل المنتج */
 .back-btn{
     background:#151923;
     color:#fff;
@@ -309,6 +310,7 @@ main{
     font-weight:bold;
 }
 
+/* السلة */
 .cart-item{
     display:flex;
     align-items:center;
@@ -393,10 +395,85 @@ main{
     margin-top:14px;
     padding:14px;
     border-radius:12px;
-    background:#00ff9d;
+    background:#25D366;
     color:#06120d;
     font-size:16px;
     font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+/* نافذة بيانات العميل قبل الواتساب */
+.modal-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-box{
+    background:#10131a;
+    border:1px solid #292e39;
+    border-radius:16px;
+    padding:20px;
+    width:100%;
+    max-width:400px;
+}
+
+.modal-box h3{
+    color:#00ff9d;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.modal-box input{
+    width:100%;
+    background:#171b24;
+    border:1px solid #2d3340;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:12px;
+    outline:none;
+    font-size:14px;
+}
+
+.modal-box input:focus{
+    border-color:#00ff9d;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top:6px;
+}
+
+.modal-send-btn{
+    flex:2;
+    background:#25D366;
+    color:#06120d;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.modal-cancel-btn{
+    flex:1;
+    background:#252932;
+    color:#ccc;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
 }
 
 .toast{
@@ -501,16 +578,32 @@ main{
     <section id="cart" class="page">
         <div class="hero">
             <h1>🛒 سلة المشتريات</h1>
-            <p>راجع طلباتك وعدّل الكميات قبل إتمام الشراء.</p>
+            <p>راجع طلباتك وعدّل الكميات ثم أرسل الطلب عبر واتساب.</p>
         </div>
         <div id="cartItems"></div>
         <div id="cartTotal"></div>
     </section>
 </main>
 
+<!-- نافذة بيانات العميل قبل الواتساب -->
+<div id="checkoutModal" class="modal-overlay">
+    <div class="modal-box">
+        <h3>بيانات التوصيل 📦</h3>
+        <input type="text" id="custName" placeholder="الاسم الكريم">
+        <input type="text" id="custCity" placeholder="المدينة / الحي">
+        <div class="modal-actions">
+            <button class="modal-send-btn" onclick="sendToWhatsApp()">إرسال الطلب عبر واتساب 💬</button>
+            <button class="modal-cancel-btn" onclick="closeModal()">إلغاء</button>
+        </div>
+    </div>
+</div>
+
 <div id="toast" class="toast">تمت إضافة المنتج للسلة ✓</div>
 
 <script>
+// رقم الواتساب الخاص بك
+var MY_WHATSAPP_NUMBER = "966539573002";
+
 var items = [
     {
         id: 1,
@@ -725,7 +818,7 @@ function updateCartUI() {
         cartTotalBox.innerHTML = 
             '<div class="total-box">' +
                 '<div class="total-line"><span>المجموع:</span><span style="color:#00ff9d">' + totalPrice + ' ر.س</span></div>' +
-                '<button class="checkout" onclick="alert(\'تم استلام طلبك التجريبي بنجاح!\')">إتمام الشراء</button>' +
+                '<button class="checkout" onclick="openCheckoutModal()">إتمام الطلب عبر واتساب 💬</button>' +
             '</div>';
     }
 }
@@ -749,6 +842,53 @@ function delItem(id){
         }
     }
     updateCartUI();
+}
+
+function openCheckoutModal(){
+    document.getElementById("checkoutModal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("checkoutModal").style.display = "none";
+}
+
+function sendToWhatsApp(){
+    var name = document.getElementById("custName").value.trim();
+    var city = document.getElementById("custCity").value.trim();
+
+    if(!name || !city){
+        alert("يرجى إدخال الاسم والمدينة لإتمام الطلب");
+        return;
+    }
+
+    var total = 0;
+    var msg = "مرحباً NEON GAMING ⚡\nأرغب في تأكيد طلبي التالي:\n\n";
+    msg += "👤 العميل: " + name + "\n";
+    msg += "📍 المدينة / الحي: " + city + "\n";
+    msg += "-------------------------\n";
+
+    for(var i=0; i<myCart.length; i++){
+        var itemData = null;
+        for(var j=0; j<items.length; j++){
+            if(items[j].id === myCart[i].id){
+                itemData = items[j];
+                break;
+            }
+        }
+        if(itemData){
+            var sub = itemData.price * myCart[i].qty;
+            total += sub;
+            msg += "▪️ " + itemData.name + " (" + itemData.brand + ")\n";
+            msg += "   الكمية: " + myCart[i].qty + " × " + itemData.price + " = " + sub + " ر.س\n";
+        }
+    }
+
+    msg += "-------------------------\n";
+    msg += "💰 الإجمالي النهائي: " + total + " ر.س";
+
+    var url = "https://wa.me/" + MY_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank");
+    closeModal();
 }
 
 function showPage(pId, btn){
