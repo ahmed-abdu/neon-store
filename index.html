@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>NEON GAMING</title>
+<title>توريد وتوزيع الديزل | سرعة وأمان</title>
 
 <style>
 *{
@@ -15,7 +15,7 @@
 }
 
 body{
-    background:#08090d;
+    background:#0b0e14;
     color:#fff;
     min-height:100vh;
     padding-bottom:50px;
@@ -30,8 +30,8 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:#0d0f15;
-    border-bottom:1px solid #20232d;
+    background:#111622;
+    border-bottom:1px solid #20293a;
     padding:14px;
 }
 
@@ -43,40 +43,28 @@ header{
 }
 
 .logo{
-    font-size:22px;
+    font-size:20px;
     font-weight:900;
-    color:#00ff9d;
+    color:#f59e0b;
     letter-spacing:0.5px;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .cart-btn{
-    background:#151923;
+    background:#1a2233;
     color:white;
     padding:10px 14px;
     border-radius:12px;
-    border:1px solid #292d38;
-    font-size:15px;
-}
-
-.cart-count{
-    color:#00ff9d;
+    border:1px solid #2b3850;
+    font-size:14px;
     font-weight:bold;
 }
 
-.search{
-    margin-top:12px;
-    width:100%;
-    background:#151821;
-    border:1px solid #282d38;
-    color:#fff;
-    padding:13px 15px;
-    border-radius:12px;
-    outline:none;
-    font-size:15px;
-}
-
-.search:focus{
-    border-color:#00ff9d;
+.cart-count{
+    color:#f59e0b;
+    font-weight:bold;
 }
 
 nav{
@@ -93,18 +81,18 @@ nav::-webkit-scrollbar{
 
 nav button{
     white-space:nowrap;
-    background:#151821;
-    color:#bbb;
+    background:#171e2c;
+    color:#94a3b8;
     padding:10px 14px;
     border-radius:10px;
-    border:1px solid #282d38;
-    font-size:14px;
+    border:1px solid #28354d;
+    font-size:13.5px;
 }
 
 nav button.active{
-    background:#00ff9d;
-    color:#06120d;
-    border-color:#00ff9d;
+    background:#f59e0b;
+    color:#0b0e14;
+    border-color:#f59e0b;
     font-weight:bold;
 }
 
@@ -116,23 +104,95 @@ main{
 
 .hero{
     background:
-      radial-gradient(circle at 80% 20%,rgba(0,255,157,.18),transparent 35%),
-      linear-gradient(135deg,#10151d,#090b10);
-    border:1px solid #252b35;
+      radial-gradient(circle at 80% 20%,rgba(245,158,11,.15),transparent 40%),
+      linear-gradient(135deg,#161f2e,#0d121a);
+    border:1px solid #243248;
     border-radius:20px;
-    padding:25px 20px;
+    padding:24px 20px;
     margin-bottom:18px;
 }
 
 .hero h1{
-    font-size:26px;
+    font-size:24px;
     margin-bottom:8px;
+    color:#f8fafc;
 }
 
 .hero p{
-    color:#a8adb8;
+    color:#94a3b8;
     line-height:1.6;
     font-size:14px;
+}
+
+/* الحاسبة السريعة */
+.calc-card{
+    background:#141b27;
+    border:1px solid #28374f;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.calc-title{
+    font-size:16px;
+    font-weight:bold;
+    color:#f59e0b;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.calc-inputs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.calc-group label{
+    display:block;
+    font-size:12px;
+    color:#94a3b8;
+    margin-bottom:5px;
+}
+
+.calc-group input, .calc-group select{
+    width:100%;
+    background:#1c2536;
+    border:1px solid #2d3c56;
+    color:#fff;
+    padding:10px;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+
+.calc-result{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0f1520;
+    border:1px dashed #334460;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.calc-price{
+    color:#f59e0b;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.calc-btn{
+    width:100%;
+    background:#f59e0b;
+    color:#0b0e14;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:15px;
 }
 
 .products{
@@ -142,8 +202,8 @@ main{
 }
 
 .card{
-    background:#10131a;
-    border:1px solid #242934;
+    background:#131924;
+    border:1px solid #222d3e;
     border-radius:16px;
     overflow:hidden;
     display:flex;
@@ -152,10 +212,9 @@ main{
 
 .product-img{
     width:100%;
-    height:160px;
-    background:#141822;
+    height:150px;
+    background:#1a2230;
     overflow:hidden;
-    cursor:pointer;
 }
 
 .product-img img{
@@ -173,36 +232,34 @@ main{
 }
 
 .brand{
-    color:#00ff9d;
+    color:#f59e0b;
     font-size:11px;
     font-weight:bold;
-    text-transform:uppercase;
     margin-bottom:4px;
 }
 
 .name{
     font-size:14px;
     font-weight:bold;
-    min-height:38px;
+    min-height:36px;
     line-height:1.35;
-    cursor:pointer;
 }
 
 .price{
-    color:white;
-    font-size:17px;
+    color:#fff;
+    font-size:15px;
     font-weight:bold;
     margin:8px 0 12px;
 }
 
 .add{
     width:100%;
-    background:#00ff9d;
-    color:#06120d;
-    padding:11px;
+    background:#f59e0b;
+    color:#0b0e14;
+    padding:10px;
     border-radius:10px;
     font-weight:bold;
-    font-size:14px;
+    font-size:13.5px;
     margin-top:auto;
 }
 
@@ -217,97 +274,8 @@ main{
 .empty{
     text-align:center;
     padding:50px 15px;
-    color:#858b97;
+    color:#64748b;
     grid-column:1 / -1;
-}
-
-/* تفاصيل المنتج */
-.back-btn{
-    background:#151923;
-    color:#fff;
-    border:1px solid #292d38;
-    padding:10px 18px;
-    border-radius:10px;
-    font-size:14px;
-    margin-bottom:15px;
-}
-
-.detail-card{
-    background:#10131a;
-    border:1px solid #242934;
-    border-radius:18px;
-    overflow:hidden;
-    padding:16px;
-}
-
-.detail-img{
-    width:100%;
-    height:250px;
-    background:#141822;
-    border-radius:14px;
-    overflow:hidden;
-    margin-bottom:16px;
-}
-
-.detail-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.detail-brand{
-    color:#00ff9d;
-    font-size:14px;
-    font-weight:bold;
-}
-
-.detail-title{
-    font-size:20px;
-    font-weight:bold;
-    margin:8px 0;
-}
-
-.detail-price{
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:16px;
-}
-
-.detail-specs-box{
-    background:#151923;
-    border:1px solid #252b36;
-    border-radius:12px;
-    padding:14px;
-    margin-bottom:18px;
-}
-
-.detail-specs-title{
-    font-size:15px;
-    font-weight:bold;
-    color:#00ff9d;
-    margin-bottom:10px;
-}
-
-.detail-specs-list{
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.detail-specs-list li{
-    font-size:13.5px;
-    color:#cbd3e1;
-}
-
-.detail-add-btn{
-    width:100%;
-    background:#00ff9d;
-    color:#06120d;
-    padding:14px;
-    border-radius:12px;
-    font-size:16px;
-    font-weight:bold;
 }
 
 /* السلة */
@@ -315,25 +283,11 @@ main{
     display:flex;
     align-items:center;
     gap:12px;
-    background:#10131a;
-    border:1px solid #242934;
+    background:#131924;
+    border:1px solid #222d3e;
     padding:12px;
     border-radius:14px;
     margin-bottom:10px;
-}
-
-.cart-img{
-    width:65px;
-    height:65px;
-    border-radius:10px;
-    overflow:hidden;
-    flex-shrink:0;
-}
-
-.cart-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
 }
 
 .cart-info{
@@ -346,9 +300,10 @@ main{
 }
 
 .cart-price{
-    color:#00ff9d;
+    color:#f59e0b;
     margin-top:4px;
     font-weight:bold;
+    font-size:14px;
 }
 
 .qty{
@@ -362,22 +317,22 @@ main{
     width:28px;
     height:28px;
     border-radius:6px;
-    background:#252a34;
+    background:#222c3d;
     color:white;
     font-size:16px;
 }
 
 .delete{
-    background:#351b20;
-    color:#ff6473;
+    background:#341d24;
+    color:#f87171;
     padding:10px;
     border-radius:8px;
-    font-size:16px;
+    font-size:15px;
 }
 
 .total-box{
-    background:#11151c;
-    border:1px solid #292e39;
+    background:#131924;
+    border:1px solid #253144;
     border-radius:16px;
     padding:18px;
     margin-top:15px;
@@ -386,7 +341,7 @@ main{
 .total-line{
     display:flex;
     justify-content:space-between;
-    font-size:18px;
+    font-size:17px;
     font-weight:bold;
 }
 
@@ -396,7 +351,7 @@ main{
     padding:14px;
     border-radius:12px;
     background:#25D366;
-    color:#06120d;
+    color:#0b0e14;
     font-size:16px;
     font-weight:bold;
     display:flex;
@@ -405,14 +360,14 @@ main{
     gap:8px;
 }
 
-/* نافذة بيانات العميل قبل الواتساب */
+/* نافذة بيانات الطلب */
 .modal-overlay{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.75);
+    background:rgba(0,0,0,0.8);
     z-index:2000;
     display:none;
     align-items:center;
@@ -421,56 +376,56 @@ main{
 }
 
 .modal-box{
-    background:#10131a;
-    border:1px solid #292e39;
+    background:#131924;
+    border:1px solid #2a384f;
     border-radius:16px;
     padding:20px;
     width:100%;
-    max-width:400px;
+    max-width:420px;
 }
 
 .modal-box h3{
-    color:#00ff9d;
+    color:#f59e0b;
     margin-bottom:12px;
     font-size:18px;
 }
 
-.modal-box input{
+.modal-box input, .modal-box textarea{
     width:100%;
-    background:#171b24;
-    border:1px solid #2d3340;
+    background:#1b2434;
+    border:1px solid #2d3c56;
     color:#fff;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:12px;
+    padding:11px;
+    border-radius:9px;
+    margin-bottom:10px;
     outline:none;
-    font-size:14px;
+    font-size:13.5px;
 }
 
-.modal-box input:focus{
-    border-color:#00ff9d;
+.modal-box input:focus, .modal-box textarea:focus{
+    border-color:#f59e0b;
 }
 
 .modal-actions{
     display:flex;
     gap:10px;
-    margin-top:6px;
+    margin-top:8px;
 }
 
 .modal-send-btn{
     flex:2;
     background:#25D366;
-    color:#06120d;
+    color:#0b0e14;
     padding:12px;
     border-radius:10px;
     font-weight:bold;
-    font-size:15px;
+    font-size:14.5px;
 }
 
 .modal-cancel-btn{
     flex:1;
-    background:#252932;
-    color:#ccc;
+    background:#253043;
+    color:#cbd5e1;
     padding:12px;
     border-radius:10px;
     font-size:14px;
@@ -481,8 +436,8 @@ main{
     bottom:20px;
     left:50%;
     transform:translateX(-50%) translateY(100px);
-    background:#00ff9d;
-    color:#06120d;
+    background:#f59e0b;
+    color:#0b0e14;
     padding:12px 20px;
     border-radius:12px;
     font-weight:bold;
@@ -506,91 +461,88 @@ main{
 
 <header>
     <div class="top">
-        <div class="logo">⚡ NEON GAMING</div>
+        <div class="logo">⛽ توريد الوقود والديزل</div>
         <button class="cart-btn" onclick="showPage('cart')">
-            🛒 السلة <span class="cart-count" id="cartCount">0</span>
+            📋 الطلبات <span class="cart-count" id="cartCount">0</span>
         </button>
     </div>
 
-    <input
-        id="search"
-        class="search"
-        type="search"
-        placeholder="ابحث عن منتج أو ماركة..."
-        oninput="searchProducts()"
-    >
-
     <nav>
-        <button class="active" onclick="showPage('home',this)">الرئيسية</button>
-        <button onclick="showPage('mobile',this)">📱 الجوال</button>
-        <button onclick="showPage('budget',this)">💰 أفضل قيمة</button>
-        <button onclick="showPage('pc',this)">🖥️ PC</button>
-        <button onclick="showPage('gear',this)">🎮 القيمنق</button>
-        <button onclick="showPage('cart',this)">🛒 السلة</button>
+        <button class="active" onclick="showPage('home',this)">الرئيسية والحاسبة</button>
+        <button onclick="showPage('trucks',this)">🚛 التوريد بالصهاريج</button>
+        <button onclick="showPage('tanks',this)">🛢️ الخزانات والمواقع</button>
+        <button onclick="showPage('cart',this)">📋 سلة الطلب</button>
     </nav>
 </header>
 
 <main>
     <section id="home" class="page active">
         <div class="hero">
-            <h1>متجر القيمنق 🔥</h1>
-            <p>اضغط على أي منتج لعرض مواصفاته التقنية بالتفصيل والشركة المصنعة.</p>
+            <h1>توريد مباشر للمواقع والمشاريع 🏗️</h1>
+            <p>تزويد المعدات، الكسارات، المولدات، والمصانع بأجود أنواع الديزل بصهاريج مجهزة وعدادات إلكترونية دقيقة.</p>
         </div>
+
+        <!-- حاسبة طلب كميات الديزل -->
+        <div class="calc-card">
+            <div class="calc-title">⚡ حاسبة طلب كمية مخصصة باللتر</div>
+            <div class="calc-inputs">
+                <div class="calc-group">
+                    <label>الكمية المطلوبة (باللتر):</label>
+                    <input type="number" id="litersInput" value="1000" min="500" step="100" oninput="calculateCustomPrice()">
+                </div>
+                <div class="calc-group">
+                    <label>نوع التوريد:</label>
+                    <select id="supplyType" onchange="calculateCustomPrice()">
+                        <option value="direct">تفريغ مباشر للمعدات</option>
+                        <option value="tank">تعبئة خزانات الموقع</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-result">
+                <span>السعر الإجمالي التقديري:</span>
+                <span class="calc-price" id="calcTotalPrice">1,150 ر.س</span>
+            </div>
+            <button class="calc-btn" onclick="addCustomDiesel()">+ إضافة الكمية إلى قائمة الطلب</button>
+        </div>
+
+        <h3 style="margin-bottom:12px; color:#cbd5e1; font-size:16px;">الباقات والخيارات الجاهزة:</h3>
         <div id="homeProducts" class="products"></div>
     </section>
 
-    <section id="mobile" class="page">
+    <section id="trucks" class="page">
         <div class="hero">
-            <h1>📱 إكسسوارات الجوال</h1>
-            <p>عتاد وتبريد مخصص للاعبي الهواتف الذكية.</p>
+            <h1>🚛 توريد الصهاريج الكبيرة</h1>
+            <p>حلول التوريد للشركات والمشاريع ذات الاستهلاك المرتفع بحمولات كاملة ونصف حمولة.</p>
         </div>
-        <div id="mobileProducts" class="products"></div>
+        <div id="truckProducts" class="products"></div>
     </section>
 
-    <section id="budget" class="page">
+    <section id="tanks" class="page">
         <div class="hero">
-            <h1>💰 أفضل قيمة</h1>
-            <p>منتجات احترافية تقدم أفضل أداء مقابل السعر.</p>
+            <h1>🛢️ تزويد المولدات والخزانات</h1>
+            <p>خدمات تزويد للمشاريع الإنشائية، المزارع، وخزانات الطوارئ بأعلى معايير السلامة.</p>
         </div>
-        <div id="budgetProducts" class="products"></div>
-    </section>
-
-    <section id="pc" class="page">
-        <div class="hero">
-            <h1>🖥️ عتاد PC</h1>
-            <p>قطع ومكونات لبناء جهاز ألعاب خارق.</p>
-        </div>
-        <div id="pcProducts" class="products"></div>
-    </section>
-
-    <section id="gear" class="page">
-        <div class="hero">
-            <h1>🎮 القيمنق والشاشات</h1>
-            <p>شاشات، كراسي، وأجهزة صوتية لتجهيز بيئة لعب مثالية.</p>
-        </div>
-        <div id="gearProducts" class="products"></div>
-    </section>
-
-    <section id="product-detail" class="page">
-        <div id="productDetailContent"></div>
+        <div id="tankProducts" class="products"></div>
     </section>
 
     <section id="cart" class="page">
         <div class="hero">
-            <h1>🛒 سلة المشتريات</h1>
-            <p>راجع طلباتك وعدّل الكميات ثم أرسل الطلب عبر واتساب.</p>
+            <h1>📋 مراجعة وتأكيد الطلب</h1>
+            <p>تحقق من الكميات، أدخل بيانات موقع المشروع، وسيتم إرسال تفاصيل التوريد مباشرة إلى المبيعات عبر واتساب.</p>
         </div>
         <div id="cartItems"></div>
         <div id="cartTotal"></div>
     </section>
 </main>
 
-<!-- نافذة بيانات العميل قبل الواتساب -->
+<!-- نافذة بيانات موقع المشروع والعميل -->
 <div id="checkoutModal" class="modal-overlay">
     <div class="modal-box">
-        <h3>بيانات التوصيل 📦</h3>
-        <input type="text" id="custName" placeholder="الاسم الكريم">
-        <input type="text" id="custCity" placeholder="المدينة / الحي">
+        <h3>📍 بيانات موقع التوريد</h3>
+        <input type="text" id="custName" placeholder="اسم العميل أو اسم المؤسسة / الشركة">
+        <input type="tel" id="custPhone" placeholder="رقم الجوال للتواصل بالموقع">
+        <input type="text" id="custCity" placeholder="المدينة والموقع (مثال: الدمام - حي الصناعية)">
+        <textarea id="custNotes" rows="3" placeholder="ملاحظات الموقع أو رابط خرائط جوجل (Google Maps)..."></textarea>
         <div class="modal-actions">
             <button class="modal-send-btn" onclick="sendToWhatsApp()">إرسال الطلب عبر واتساب 💬</button>
             <button class="modal-cancel-btn" onclick="closeModal()">إلغاء</button>
@@ -598,168 +550,120 @@ main{
     </div>
 </div>
 
-<div id="toast" class="toast">تمت إضافة المنتج للسلة ✓</div>
+<div id="toast" class="toast">تمت إضافة الكمية لطلبك ✓</div>
 
 <script>
-// رقم الواتساب الخاص بك
-var MY_WHATSAPP_NUMBER = "966539573002";
+// أدخل رقم الواتساب الذي ستستقبل عليه الطلبات
+var MY_WHATSAPP_NUMBER = "966568717572";
+
+// سعر تقريبي للتر (يمكنك تعديل القيمة بما يناسبك)
+var PRICE_PER_LITER = 1.15;
 
 var items = [
     {
-        id: 1,
-        cat: "mobile",
-        name: "مبرد جوال Funcooler 4 Pro",
-        brand: "Black Shark",
-        price: 165,
-        img: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=500&auto=format&fit=crop&q=60",
-        specs: ["تبريد مائي وأشباه موصلات 27W", "انخفاض فوري في الحرارة حتى 35 درجة", "تحكم عبر تطبيق الهاتف وبلوتوث"]
+        id: 101,
+        cat: "trucks",
+        name: "صهريج كبير (حمولة كاملة 32,000 لتر)",
+        brand: "توريد جملة",
+        price: 36800,
+        img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&auto=format&fit=crop&q=60",
+        desc: "مثالي للمصانع والكسارات والمشاريع الحكومية الكبرى"
     },
     {
-        id: 2,
-        cat: "mobile",
-        name: "يد تحكم G8 Galileo",
-        brand: "GameSir",
-        price: 280,
-        img: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500&auto=format&fit=crop&q=60",
-        specs: ["عصي Hall Effect ضد الانجراف", "اتصال Type-C بدون أي تأخير", "أزرار خلفية برمجية"]
+        id: 102,
+        cat: "trucks",
+        name: "صهريج متوسط (حمولة 16,000 لتر)",
+        brand: "توريد مشاريع",
+        price: 18400,
+        img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=500&auto=format&fit=crop&q=60",
+        desc: "تغذية خزانات المجمعات السكنية ومحطات الخرسانة"
     },
     {
-        id: 3,
-        cat: "budget",
-        name: "ماوس G102 Lightsync",
-        brand: "Logitech G",
-        price: 95,
-        img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop&q=60",
-        specs: ["مستشعر دقيق 8000 DPI", "إضاءة RGB 16.8 مليون لون", "6 أزرار بنقرات سريعة"]
+        id: 103,
+        cat: "tanks",
+        name: "صهريج صغير (سعة 5,000 لتر)",
+        brand: "توريد سريع",
+        price: 5750,
+        img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&auto=format&fit=crop&q=60",
+        desc: "سهولة الحركة والوصول للمواقع الإنشائية الضيقة"
     },
     {
-        id: 4,
-        cat: "budget",
-        name: "كيبورد K617 Fizz",
-        brand: "Redragon",
-        price: 145,
-        img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=60",
-        specs: ["حجم مدمج 60% للألعاب", "سويتش أحمر خطي وسريع", "إمكانية تبديل السويتشات بسهولة"]
-    },
-    {
-        id: 5,
-        cat: "pc",
-        name: "كرت شاشة RTX 4060",
-        brand: "MSI",
-        price: 1299,
-        img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&auto=format&fit=crop&q=60",
-        specs: ["ذاكرة 8GB GDDR6", "دعم كامل لتقنية DLSS 3 وتتبع الأشعة", "تبريد ثنائي هادئ وفعال"]
-    },
-    {
-        id: 6,
-        cat: "pc",
-        name: "معالج Ryzen 5 7600",
-        brand: "AMD",
-        price: 699,
-        img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=500&auto=format&fit=crop&q=60",
-        specs: ["6 أنوية و12 مسار معمارية Zen 4", "تردد يصل إلى 5.1GHz", "منصة AM5 المتوافقة مع DDR5"]
-    },
-    {
-        id: 7,
-        cat: "gear",
-        name: 'شاشة Gaming 24" 165Hz',
-        brand: "AOC",
-        price: 499,
-        img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60",
-        specs: ["لوحة IPS بدقة Full HD", "معدل تحديث 165Hz وزمن استجابة 1ms", "دعم FreeSync لمنع التقطيع"]
-    },
-    {
-        id: 8,
-        cat: "gear",
-        name: "سماعة Gaming لاسلكية",
-        brand: "Razer",
-        price: 599,
-        img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
-        specs: ["اتصال لاسلكي 2.4GHz منخفض التأخير", "درايفرات 50mm لصوت نقي ومحيطي", "بطارية تصمد حتى 70 ساعة"]
+        id: 104,
+        cat: "tanks",
+        name: "تعبئة مولدات ومعدات (2,000 لتر)",
+        brand: "معدات ومولدات",
+        price: 2300,
+        img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=500&auto=format&fit=crop&q=60",
+        desc: "توزيع مباشر في خزانات المولدات والرافعات مع عداد إلكتروني"
     }
 ];
 
 var myCart = [];
 
+function calculateCustomPrice(){
+    var liters = parseFloat(document.getElementById("litersInput").value) || 0;
+    var total = Math.round(liters * PRICE_PER_LITER);
+    document.getElementById("calcTotalPrice").innerText = total.toLocaleString() + " ر.س";
+}
+
+function addCustomDiesel(){
+    var liters = parseFloat(document.getElementById("litersInput").value);
+    if(!liters || liters < 100){
+        alert("يرجى تحديد كمية صالحة (100 لتر كحد أدنى)");
+        return;
+    }
+    var type = document.getElementById("supplyType").value === "direct" ? "تفريغ مباشر معدات" : "تعبئة خزان الموقع";
+    var cost = Math.round(liters * PRICE_PER_LITER);
+
+    var customItem = {
+        id: Date.now(),
+        cat: "custom",
+        name: "ديزل - طلب مخصص (" + liters.toLocaleString() + " لتر)",
+        brand: type,
+        price: cost,
+        img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&auto=format&fit=crop&q=60"
+    };
+
+    items.push(customItem);
+    addItem(customItem.id);
+}
+
 function cardHtml(p) {
     return '<article class="card">' +
-        '<div class="product-img" onclick="openDetails(' + p.id + ')">' +
+        '<div class="product-img">' +
             '<img src="' + p.img + '" alt="' + p.name + '">' +
         '</div>' +
         '<div class="info">' +
             '<div class="brand">' + p.brand + '</div>' +
-            '<div class="name" onclick="openDetails(' + p.id + ')">' + p.name + '</div>' +
-            '<div class="price">' + p.price + ' ر.س</div>' +
-            '<button class="add" onclick="addItem(' + p.id + ')">🛒 أضف للسلة</button>' +
+            '<div class="name">' + p.name + '</div>' +
+            '<div class="price">' + p.price.toLocaleString() + ' ر.س</div>' +
+            '<button class="add" onclick="addItem(' + p.id + ')">+ أضف لقائمة الطلب</button>' +
         '</div>' +
     '</article>';
 }
 
 function loadAll() {
     var home = document.getElementById("homeProducts");
-    var mobile = document.getElementById("mobileProducts");
-    var budget = document.getElementById("budgetProducts");
-    var pc = document.getElementById("pcProducts");
-    var gear = document.getElementById("gearProducts");
+    var trucks = document.getElementById("truckProducts");
+    var tanks = document.getElementById("tankProducts");
 
     if (home) {
         var hHtml = "";
-        for(var i=0; i<items.length; i++) hHtml += cardHtml(items[i]);
+        for(var i=0; i<items.length; i++) {
+            if(items[i].cat !== "custom") hHtml += cardHtml(items[i]);
+        }
         home.innerHTML = hHtml;
     }
-    if (mobile) {
-        var mHtml = "";
-        for(var i=0; i<items.length; i++) if(items[i].cat === "mobile") mHtml += cardHtml(items[i]);
-        mobile.innerHTML = mHtml;
+    if (trucks) {
+        var trHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "trucks") trHtml += cardHtml(items[i]);
+        trucks.innerHTML = trHtml;
     }
-    if (budget) {
-        var bHtml = "";
-        for(var i=0; i<items.length; i++) if(items[i].cat === "budget") bHtml += cardHtml(items[i]);
-        budget.innerHTML = bHtml;
+    if (tanks) {
+        var taHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "tanks") taHtml += cardHtml(items[i]);
+        tanks.innerHTML = taHtml;
     }
-    if (pc) {
-        var pHtml = "";
-        for(var i=0; i<items.length; i++) if(items[i].cat === "pc") pHtml += cardHtml(items[i]);
-        pc.innerHTML = pHtml;
-    }
-    if (gear) {
-        var gHtml = "";
-        for(var i=0; i<items.length; i++) if(items[i].cat === "gear") gHtml += cardHtml(items[i]);
-        gear.innerHTML = gHtml;
-    }
-}
-
-function openDetails(id) {
-    var p = null;
-    for(var i=0; i<items.length; i++){
-        if(items[i].id === id) { p = items[i]; break; }
-    }
-    if(!p) return;
-
-    var sHtml = "";
-    for(var j=0; j<p.specs.length; j++){
-        sHtml += '<li>⚡ ' + p.specs[j] + '</li>';
-    }
-
-    var box = document.getElementById("productDetailContent");
-    box.innerHTML = 
-        '<button class="back-btn" onclick="showPage(\'home\')">⬅️ رجوع للمتجر</button>' +
-        '<div class="detail-card">' +
-            '<div class="detail-img"><img src="' + p.img + '"></div>' +
-            '<div class="detail-brand">' + p.brand + '</div>' +
-            '<div class="detail-title">' + p.name + '</div>' +
-            '<div class="detail-price">' + p.price + ' ر.س</div>' +
-            '<div class="detail-specs-box">' +
-                '<div class="detail-specs-title">المواصفات الأساسية:</div>' +
-                '<ul class="detail-specs-list">' + sHtml + '</ul>' +
-            '</div>' +
-            '<button class="detail-add-btn" onclick="addItem(' + p.id + ')">🛒 إضافة إلى السلة</button>' +
-        '</div>';
-
-    var pages = document.querySelectorAll(".page");
-    for(var k=0; k<pages.length; k++) pages[k].classList.remove("active");
-    document.getElementById("product-detail").classList.add("active");
-    window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function addItem(id) {
@@ -773,7 +677,7 @@ function addItem(id) {
     }
     if(!found) myCart.push({id: id, qty: 1});
     updateCartUI();
-    showToastMsg("تمت الإضافة للسلة ✓");
+    showToastMsg("تمت إضافة الطلب بنجاح ✓");
 }
 
 function updateCartUI() {
@@ -791,10 +695,9 @@ function updateCartUI() {
             totalPrice += (itemData.price * myCart[i].qty);
             cHtml += 
                 '<div class="cart-item">' +
-                    '<div class="cart-img"><img src="' + itemData.img + '"></div>' +
                     '<div class="cart-info">' +
                         '<div class="cart-name">' + itemData.name + '</div>' +
-                        '<div class="cart-price">' + (itemData.price * myCart[i].qty) + ' ر.س</div>' +
+                        '<div class="cart-price">' + (itemData.price * myCart[i].qty).toLocaleString() + ' ر.س</div>' +
                         '<div class="qty">' +
                             '<button onclick="modQty(' + itemData.id + ',1)">+</button>' +
                             '<span>' + myCart[i].qty + '</span>' +
@@ -811,14 +714,14 @@ function updateCartUI() {
     var cartTotalBox = document.getElementById("cartTotal");
 
     if(myCart.length === 0){
-        cartItemsBox.innerHTML = '<div class="empty"><h2>السلة فارغة</h2></div>';
+        cartItemsBox.innerHTML = '<div class="empty"><h2>لا توجد طلبات حالياً</h2><p style="margin-top:8px">اختر كمية الديزل أو الباقة المناسبة لإتمام التوريد.</p></div>';
         cartTotalBox.innerHTML = '';
     } else {
         cartItemsBox.innerHTML = cHtml;
         cartTotalBox.innerHTML = 
             '<div class="total-box">' +
-                '<div class="total-line"><span>المجموع:</span><span style="color:#00ff9d">' + totalPrice + ' ر.س</span></div>' +
-                '<button class="checkout" onclick="openCheckoutModal()">إتمام الطلب عبر واتساب 💬</button>' +
+                '<div class="total-line"><span>المجموع التقديري:</span><span style="color:#f59e0b">' + totalPrice.toLocaleString() + ' ر.س</span></div>' +
+                '<button class="checkout" onclick="openCheckoutModal()">تأكيد الطلب وإرسال الموقع عبر واتساب 💬</button>' +
             '</div>';
     }
 }
@@ -854,85 +757,47 @@ function closeModal(){
 
 function sendToWhatsApp(){
     var name = document.getElementById("custName").value.trim();
+    var phone = document.getElementById("custPhone").value.trim();
     var city = document.getElementById("custCity").value.trim();
+    var notes = document.getElementById("custNotes").value.trim();
 
     if(!name || !city){
-        alert("يرجى إدخال الاسم والمدينة لإتمام الطلب");
+        alert("يرجى كتابة اسم العميل والمدينة / الموقع لتسهيل التوصيل.");
         return;
     }
 
-    var total = 0;
-    var msg = "مرحباً NEON GAMING ⚡\nأرغب في تأكيد طلبي التالي:\n\n";
-    msg += "👤 العميل: " + name + "\n";
-    msg += "📍 المدينة / الحي: " + city + "\n";
-    msg += "-------------------------\n";
+    var orderDetails = "السلام عليكم ورحمة الله، أود تأكيد طلب توريد ديزل:\n\n";
+    var totalPrice = 0;
 
     for(var i=0; i<myCart.length; i++){
         var itemData = null;
         for(var j=0; j<items.length; j++){
-            if(items[j].id === myCart[i].id){
-                itemData = items[j];
-                break;
-            }
+            if(items[j].id === myCart[i].id) { itemData = items[j]; break; }
         }
         if(itemData){
-            var sub = itemData.price * myCart[i].qty;
-            total += sub;
-            msg += "▪️ " + itemData.name + " (" + itemData.brand + ")\n";
-            msg += "   الكمية: " + myCart[i].qty + " × " + itemData.price + " = " + sub + " ر.س\n";
+            var itemTotal = itemData.price * myCart[i].qty;
+            totalPrice += itemTotal;
+            orderDetails += "▪️ " + itemData.name + " (" + itemData.brand + ") | الكمية: " + myCart[i].qty + " | القيمة: " + itemTotal.toLocaleString() + " ر.س\n";
         }
     }
 
-    msg += "-------------------------\n";
-    msg += "💰 الإجمالي النهائي: " + total + " ر.س";
+    orderDetails += "\n💰 الإجمالي التقديري: " + totalPrice.toLocaleString() + " ر.س\n";
+    orderDetails += "------------------------\n";
+    orderDetails += "👤 العميل/الجهة: " + name + "\n";
+    if(phone) orderDetails += "📞 جوال الموقع: " + phone + "\n";
+    orderDetails += "📍 الموقع/المدينة: " + city + "\n";
+    if(notes) orderDetails += "📝 ملاحظات / خرائط: " + notes + "\n";
 
-    var url = "https://wa.me/" + MY_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+    var url = "https://wa.me/" + MY_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(orderDetails);
     window.open(url, "_blank");
-    closeModal();
 }
 
-function showPage(pId, btn){
+function showPage(pageId, btn){
     var pages = document.querySelectorAll(".page");
     for(var i=0; i<pages.length; i++) pages[i].classList.remove("active");
-    var target = document.getElementById(pId);
+    
+    var target = document.getElementById(pageId);
     if(target) target.classList.add("active");
 
-    var navBtns = document.querySelectorAll("nav button");
-    for(var j=0; j<navBtns.length; j++) navBtns[j].classList.remove("active");
-    if(btn) btn.classList.add("active");
-
-    window.scrollTo({top:0, behavior:"smooth"});
-}
-
-function searchProducts(){
-    var q = document.getElementById("search").value.toLowerCase();
-    var home = document.getElementById("homeProducts");
-    var sHtml = "";
-    var count = 0;
-    for(var i=0; i<items.length; i++){
-        if(items[i].name.toLowerCase().indexOf(q) > -1 || items[i].brand.toLowerCase().indexOf(q) > -1){
-            sHtml += cardHtml(items[i]);
-            count++;
-        }
-    }
-    showPage("home");
-    if(count === 0){
-        home.innerHTML = '<div class="empty">لا توجد منتجات تطابق بحثك</div>';
-    } else {
-        home.innerHTML = sHtml;
-    }
-}
-
-function showToastMsg(txt){
-    var t = document.getElementById("toast");
-    t.innerText = txt;
-    t.classList.add("show");
-    setTimeout(function(){ t.classList.remove("show"); }, 1500);
-}
-
-loadAll();
-updateCartUI();
-</script>
-
-</body>
-</html>
+    if(btn){
+        var btns = document.querySelectorAll("
