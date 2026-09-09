@@ -10,7 +10,7 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,Tahoma,sans-serif;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,Arial,sans-serif;
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -18,6 +18,7 @@ body{
     background:#08090d;
     color:#fff;
     min-height:100vh;
+    padding-bottom:50px;
 }
 
 button{
@@ -145,22 +146,14 @@ main{
     border:1px solid #242934;
     border-radius:16px;
     overflow:hidden;
-    transition:transform .15s ease;
     display:flex;
     flex-direction:column;
 }
 
-.card:active{
-    transform:scale(.98);
-}
-
 .product-img{
     width:100%;
-    height:165px;
+    height:160px;
     background:#141822;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     overflow:hidden;
     cursor:pointer;
 }
@@ -197,7 +190,7 @@ main{
 
 .price{
     color:white;
-    font-size:18px;
+    font-size:17px;
     font-weight:bold;
     margin:8px 0 12px;
 }
@@ -228,7 +221,6 @@ main{
     grid-column:1 / -1;
 }
 
-/* صفحة تفاصيل المنتج ومواصفاته */
 .back-btn{
     background:#151923;
     color:#fff;
@@ -237,9 +229,6 @@ main{
     border-radius:10px;
     font-size:14px;
     margin-bottom:15px;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
 }
 
 .detail-card{
@@ -255,9 +244,6 @@ main{
     height:250px;
     background:#141822;
     border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     overflow:hidden;
     margin-bottom:16px;
 }
@@ -272,21 +258,17 @@ main{
     color:#00ff9d;
     font-size:14px;
     font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:1px;
 }
 
 .detail-title{
     font-size:20px;
     font-weight:bold;
     margin:8px 0;
-    line-height:1.4;
 }
 
 .detail-price{
     font-size:22px;
     font-weight:bold;
-    color:#fff;
     margin-bottom:16px;
 }
 
@@ -315,14 +297,6 @@ main{
 .detail-specs-list li{
     font-size:13.5px;
     color:#cbd3e1;
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.detail-specs-list li::before{
-    content:"⚡";
-    font-size:12px;
 }
 
 .detail-add-btn{
@@ -335,7 +309,6 @@ main{
     font-weight:bold;
 }
 
-/* السلة */
 .cart-item{
     display:flex;
     align-items:center;
@@ -351,7 +324,6 @@ main{
     width:65px;
     height:65px;
     border-radius:10px;
-    background:#171b23;
     overflow:hidden;
     flex-shrink:0;
 }
@@ -369,7 +341,6 @@ main{
 .cart-name{
     font-weight:bold;
     font-size:14px;
-    line-height:1.3;
 }
 
 .cart-price{
@@ -440,17 +411,10 @@ main{
     font-weight:bold;
     z-index:5000;
     transition:transform .3s ease;
-    box-shadow:0 4px 15px rgba(0,255,157,.3);
 }
 
 .toast.show{
     transform:translateX(-50%) translateY(0);
-}
-
-@media(max-width:360px){
-    .products{
-        grid-template-columns:1fr;
-    }
 }
 
 @media(min-width:700px){
@@ -475,7 +439,7 @@ main{
         id="search"
         class="search"
         type="search"
-        placeholder="ابحث عن منتج أو شركة..."
+        placeholder="ابحث عن منتج أو ماركة..."
         oninput="searchProducts()"
     >
 
@@ -530,7 +494,6 @@ main{
         <div id="gearProducts" class="products"></div>
     </section>
 
-    <!-- صفحة تفاصيل المنتج -->
     <section id="product-detail" class="page">
         <div id="productDetailContent"></div>
     </section>
@@ -548,288 +511,288 @@ main{
 <div id="toast" class="toast">تمت إضافة المنتج للسلة ✓</div>
 
 <script>
-const products = [
+var items = [
     {
         id: 1,
-        category: "mobile",
+        cat: "mobile",
         name: "مبرد جوال Funcooler 4 Pro",
         brand: "Black Shark",
         price: 165,
-        image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "تبريد مائي وأشباه موصلات فائق بقوة 27W",
-            "انخفاض فوري في الحرارة حتى 35 درجة مئوية",
-            "إضاءة RGB ديناميكية وتحكم كامل عبر تطبيق البلوتوث",
-            "مشبك تثبيت ميكانيكي متوافق مع كافة الهواتف"
-        ]
+        img: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=500&auto=format&fit=crop&q=60",
+        specs: ["تبريد مائي وأشباه موصلات 27W", "انخفاض فوري في الحرارة حتى 35 درجة", "تحكم عبر تطبيق الهاتف وبلوتوث"]
     },
     {
         id: 2,
-        category: "mobile",
+        cat: "mobile",
         name: "يد تحكم G8 Galileo",
         brand: "GameSir",
         price: 280,
-        image: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "عصي وأزرار Hall Effect مضادة للانجراف (Anti-Drift)",
-            "منفذ Type-C متصل مباشر لمنع التأخير نهائياً",
-            "أزرار خلفية إضافية قابلة للتخصيص والبرمجة",
-            "دعم منفذ شحن سريع Pass-through أثناء اللعب"
-        ]
+        img: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500&auto=format&fit=crop&q=60",
+        specs: ["عصي Hall Effect ضد الانجراف", "اتصال Type-C بدون أي تأخير", "أزرار خلفية برمجية"]
     },
     {
         id: 3,
-        category: "mobile",
-        name: "وصلة شحن وصوت 60W",
-        brand: "Belkin",
-        price: 115,
-        image: "https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "شحن سريع بقوة 60W عبر بروتوكول Power Delivery",
-            "منفذ صوت نقي 3.5mm مزود بشريحة DAC مدمجة",
-            "متوافق مع أجهزة الآيفون 15/16 والأندرويد والآيباد",
-            "سلك معزول ومقاوم للثني والحرارة العالية"
-        ]
-    },
-    {
-        id: 4,
-        category: "mobile",
-        name: "قفازات أصابع P1 Carbon",
-        brand: "Flydigi",
-        price: 35,
-        image: "https://images.unsplash.com/photo-1584679109597-c656b19974c9?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "ألياف كربونية فائقة التوصيل للمس الدقيق للشاشة",
-            "عزل تام لعرق الأصابع لضمان انزلاق وسرعة تصويب",
-            "سماكة نحيفة جداً 0.3mm لاستجابة فورية",
-            "خامة مطاطية تناسب مقاسات الأصابع المختلفة"
-        ]
-    },
-    {
-        id: 5,
-        category: "mobile",
-        name: "شاحن GaN 65W",
-        brand: "Anker",
-        price: 135,
-        image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "تقنية GaN المبتكرة لتقليل الحجم والحرارة",
-            "قدرة شحن 65W كافية للجوال واللابتوب معاً",
-            "ثلاثة منافذ ذكية لتوزيع الطاقة بأمان",
-            "نظام مراقبة درجات الحرارة ActiveShield"
-        ]
-    },
-    {
-        id: 6,
-        category: "mobile",
-        name: "كيبل زاوية 90° 100W",
-        brand: "Baseus",
-        price: 45,
-        image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "رأس منحني بزاوية 90 درجة لراحة اليد أثناء الجيمنج",
-            "يدعم قدرة شحن خارقة حتى 100 واط",
-            "مجدول بألياف نايلون قوية تمنع القطع والتشابك",
-            "شريحة E-Marker الذكية لمنع تلف بطارية الهاتف"
-        ]
-    },
-    {
-        id: 7,
-        category: "budget",
+        cat: "budget",
         name: "ماوس G102 Lightsync",
         brand: "Logitech G",
         price: 95,
-        image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "مستشعر احترافي حتى 8000 DPI عالي الدقة",
-            "إضاءة مخصصة Lightsync RGB بـ 16.8 مليون لون",
-            "6 أزرار برمجية بنظام زنبرك معدني لنقرات حاسمة",
-            "وزن خفيف مناسب للألعاب السريعة والتنافسية"
-        ]
+        img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop&q=60",
+        specs: ["مستشعر دقيق 8000 DPI", "إضاءة RGB 16.8 مليون لون", "6 أزرار بنقرات سريعة"]
     },
     {
-        id: 8,
-        category: "budget",
-        name: "سماعة Wan'er Hi-Fi",
-        brand: "Tangzu",
-        price: 85,
-        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "صوت ستيريو نقي جداً وعزل احترافي للخطوات",
-            "درايفر مغناطيسي 10mm لتفاصيل صوتية دقيقة",
-            "كيبل احترافي مطلي بالفضة قابل للاستبدال",
-            "سدادات أذن مريحة للاستخدام الطويل"
-        ]
-    },
-    {
-        id: 9,
-        category: "budget",
+        id: 4,
+        cat: "budget",
         name: "كيبورد K617 Fizz",
         brand: "Redragon",
         price: 145,
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "حجم مدمج 60% لتوفير أكبر مساحة لحركة الماوس",
-            "سويتشات حمراء خطية هادئة وسريعة الاستجابة",
-            "خاصية التبديل السريع للسويتشات Hot-Swap",
-            "كيبل Type-C قابل للفصل لسهولة النقل"
-        ]
+        img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=60",
+        specs: ["حجم مدمج 60% للألعاب", "سويتش أحمر خطي وسريع", "إمكانية تبديل السويتشات بسهولة"]
     },
     {
-        id: 10,
-        category: "budget",
-        name: "ماوس باد 90×40",
-        brand: "AULA",
-        price: 45,
-        image: "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "أبعاد ضخمة 900x400 مم تغطي سطح المكتب",
-            "قماش مايكروفايبر أملس لحركة سلسة ومضبوطة",
-            "خياطة حواف معززة ضد الاهتراء والتلف",
-            "قاعدة مطاطية مقاومة للانزلاق نهائياً"
-        ]
-    },
-    {
-        id: 11,
-        category: "budget",
-        name: "حامل سماعة RGB",
-        brand: "Havit",
-        price: 55,
-        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "إضاءة محيطية RGB بعدة أوضاع ديناميكية",
-            "منفذين USB مدمجين لنقل البيانات وشحن العتاد",
-            "تصميم صلب وثابت يمنع سقوط السماعة",
-            "منفذ صوت 3.5mm إضافي لتوصيل السماعة مباشرة"
-        ]
-    },
-    {
-        id: 12,
-        category: "budget",
-        name: "ميكروفون USB",
-        brand: "FIFINE",
-        price: 129,
-        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "مايكروفون مكثف بنمط قطبي قلبي لعزل الضجيج الخلفي",
-            "زر كتم صوت فوري يعمل باللمس مع مؤشر إضاءة",
-            "مرفق معه مانع اهتزاز Shock Mount وفلتر هواء",
-            "تشغيل مباشر دون الحاجة لأي برامج إضافية"
-        ]
-    },
-    {
-        id: 13,
-        category: "pc",
-        name: "RTX 4060 Gaming X 8G",
+        id: 5,
+        cat: "pc",
+        name: "كرت شاشة RTX 4060",
         brand: "MSI",
         price: 1299,
-        image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "معمارية Ada Lovelace مع ذاكرة 8GB GDDR6 سريعة",
-            "دعم كامل لتقنيات الذكاء الاصطناعي DLSS 3 وتتبع الأشعة",
-            "نظام تبريد TWIN FROZR 9 الصامت والمستقر",
-            "أداء فائق على دقة 1080p و 1440p بأعلى إعدادات"
-        ]
+        img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&auto=format&fit=crop&q=60",
+        specs: ["ذاكرة 8GB GDDR6", "دعم كامل لتقنية DLSS 3 وتتبع الأشعة", "تبريد ثنائي هادئ وفعال"]
     },
     {
-        id: 14,
-        category: "pc",
-        name: "Ryzen 5 7600",
+        id: 6,
+        cat: "pc",
+        name: "معالج Ryzen 5 7600",
         brand: "AMD",
         price: 699,
-        image: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "6 أنوية حقيقية و 12 مسار معمارية Zen 4 الحديثة",
-            "تردد معزز يصل إلى 5.1GHz لأعلى أداء بالألعاب",
-            "متوافق مع منصة AM5 وذواكر الجيل الجديد DDR5",
-            "استهلاك طاقة منخفض 65W مع مبرد هوائي مرفق"
-        ]
+        img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=500&auto=format&fit=crop&q=60",
+        specs: ["6 أنوية و12 مسار معمارية Zen 4", "تردد يصل إلى 5.1GHz", "منصة AM5 المتوافقة مع DDR5"]
     },
     {
-        id: 15,
-        category: "pc",
-        name: "Vengeance DDR5 32GB",
-        brand: "Corsair",
-        price: 349,
-        image: "https://images.unsplash.com/photo-1562976540-1502c2145186?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "طقم قطعتين (2x16GB) بسرعة فائقة 6000MHz",
-            "دعم ملفات كسر السرعة Intel XMP 3.0 و AMD EXPO",
-            "مشتت ألمنيوم صلب لتشتيت الحرارة أثناء الضغط العالي",
-            "استقرار كامل وتوافق مع أحدث اللوحات الأم"
-        ]
-    },
-    {
-        id: 16,
-        category: "pc",
-        name: "WD NVMe SSD 1TB",
-        brand: "Western Digital",
-        price: 299,
-        image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "منفذ PCIe Gen4 فائق السرعة",
-            "سرعة قراءة تصل إلى 5150 ميجابايت بالثانية لتحميل فوري",
-            "تقنية التخزين nCache 4.0 لنقل الملفات الضخمة بكفاءة",
-            "صيغة M.2 2280 المتوافقة مع أجهزة PC واللابتوب"
-        ]
-    },
-    {
-        id: 17,
-        category: "pc",
-        name: "مزود طاقة 650W",
-        brand: "Cooler Master",
-        price: 249,
-        image: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "طاقة حقيقية 650W مع شهادة الكفاءة 80 PLUS Bronze",
-            "مروحة 120mm هيدروليكية صامتة تماماً تحت الضغط العادي",
-            "حماية متكاملة من التذبذب وارتفاع درجات الحرارة",
-            "كابلات مسطحة سوداء تسهل الترتيب والمظهر الجمالي"
-        ]
-    },
-    {
-        id: 18,
-        category: "pc",
-        name: "كيس Gaming RGB",
-        brand: "NZXT",
-        price: 399,
-        image: "https://images.unsplash.com/photo-1547082299-de196ea013d6?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "واجهة أمامية شبكية لتأمين أعلى تدفق هوائي للقطع",
-            "لوح جانبي من الزجاج المقوى المقاوم للخدوش",
-            "مروحة سفلية مائلة موجهة لتبريد كرت الشاشة خصيصاً",
-            "مسارات وقنوات منظمة لترتيب الكابلات باحترافية"
-        ]
-    },
-    {
-        id: 19,
-        category: "gear",
-        name: 'شاشة Gaming 24"',
+        id: 7,
+        cat: "gear",
+        name: 'شاشة Gaming 24" 165Hz',
         brand: "AOC",
         price: 499,
-        image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "لوحة IPS بدقة Full HD بألوان حقيقية وزوايا رؤية 178°",
-            "معدل تحديث 165Hz وزمن استجابة فائق 1ms",
-            "دعم تقنية FreeSync Premium لمنع تقطيع الصور",
-            "حواف نحيفة جداً وتدعم معيار VESA للتعليق على الحائط"
-        ]
+        img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60",
+        specs: ["لوحة IPS بدقة Full HD", "معدل تحديث 165Hz وزمن استجابة 1ms", "دعم FreeSync لمنع التقطيع"]
     },
     {
-        id: 20,
-        category: "gear",
-        name: "كرسي Gaming",
-        brand: "DXRacer",
-        price: 899,
-        image: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=500&auto=format&fit=crop&q=60",
-        specs: [
-            "تصميم طبي يدعم فقرات الظهر والرقبة لساعات الجلوس",
-            "جلد صناعي فخم ومقاوم للحرارة والرطوبة والتمزق",
-            "مساند ذراع قابلة للضبط في مختلف الاتجاهات",
-            "هيكل معدني قوي مع إمكانية إمالة الظهر حتى 135 درجة"
-        ]
-    },
-    {
-        id: 21,
-        category: "gear",
-        name: "م
+        id: 8,
+        cat: "gear",
+        name: "سماعة Gaming لاسلكية",
+        brand: "Razer",
+        price: 599,
+        img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
+        specs: ["اتصال لاسلكي 2.4GHz منخفض التأخير", "درايفرات 50mm لصوت نقي ومحيطي", "بطارية تصمد حتى 70 ساعة"]
+    }
+];
+
+var myCart = [];
+
+function cardHtml(p) {
+    return '<article class="card">' +
+        '<div class="product-img" onclick="openDetails(' + p.id + ')">' +
+            '<img src="' + p.img + '" alt="' + p.name + '">' +
+        '</div>' +
+        '<div class="info">' +
+            '<div class="brand">' + p.brand + '</div>' +
+            '<div class="name" onclick="openDetails(' + p.id + ')">' + p.name + '</div>' +
+            '<div class="price">' + p.price + ' ر.س</div>' +
+            '<button class="add" onclick="addItem(' + p.id + ')">🛒 أضف للسلة</button>' +
+        '</div>' +
+    '</article>';
+}
+
+function loadAll() {
+    var home = document.getElementById("homeProducts");
+    var mobile = document.getElementById("mobileProducts");
+    var budget = document.getElementById("budgetProducts");
+    var pc = document.getElementById("pcProducts");
+    var gear = document.getElementById("gearProducts");
+
+    if (home) {
+        var hHtml = "";
+        for(var i=0; i<items.length; i++) hHtml += cardHtml(items[i]);
+        home.innerHTML = hHtml;
+    }
+    if (mobile) {
+        var mHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "mobile") mHtml += cardHtml(items[i]);
+        mobile.innerHTML = mHtml;
+    }
+    if (budget) {
+        var bHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "budget") bHtml += cardHtml(items[i]);
+        budget.innerHTML = bHtml;
+    }
+    if (pc) {
+        var pHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "pc") pHtml += cardHtml(items[i]);
+        pc.innerHTML = pHtml;
+    }
+    if (gear) {
+        var gHtml = "";
+        for(var i=0; i<items.length; i++) if(items[i].cat === "gear") gHtml += cardHtml(items[i]);
+        gear.innerHTML = gHtml;
+    }
+}
+
+function openDetails(id) {
+    var p = null;
+    for(var i=0; i<items.length; i++){
+        if(items[i].id === id) { p = items[i]; break; }
+    }
+    if(!p) return;
+
+    var sHtml = "";
+    for(var j=0; j<p.specs.length; j++){
+        sHtml += '<li>⚡ ' + p.specs[j] + '</li>';
+    }
+
+    var box = document.getElementById("productDetailContent");
+    box.innerHTML = 
+        '<button class="back-btn" onclick="showPage(\'home\')">⬅️ رجوع للمتجر</button>' +
+        '<div class="detail-card">' +
+            '<div class="detail-img"><img src="' + p.img + '"></div>' +
+            '<div class="detail-brand">' + p.brand + '</div>' +
+            '<div class="detail-title">' + p.name + '</div>' +
+            '<div class="detail-price">' + p.price + ' ر.س</div>' +
+            '<div class="detail-specs-box">' +
+                '<div class="detail-specs-title">المواصفات الأساسية:</div>' +
+                '<ul class="detail-specs-list">' + sHtml + '</ul>' +
+            '</div>' +
+            '<button class="detail-add-btn" onclick="addItem(' + p.id + ')">🛒 إضافة إلى السلة</button>' +
+        '</div>';
+
+    var pages = document.querySelectorAll(".page");
+    for(var k=0; k<pages.length; k++) pages[k].classList.remove("active");
+    document.getElementById("product-detail").classList.add("active");
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function addItem(id) {
+    var found = false;
+    for(var i=0; i<myCart.length; i++){
+        if(myCart[i].id === id){
+            myCart[i].qty++;
+            found = true;
+            break;
+        }
+    }
+    if(!found) myCart.push({id: id, qty: 1});
+    updateCartUI();
+    showToastMsg("تمت الإضافة للسلة ✓");
+}
+
+function updateCartUI() {
+    var totalCount = 0;
+    var totalPrice = 0;
+    var cHtml = "";
+
+    for(var i=0; i<myCart.length; i++){
+        var itemData = null;
+        for(var j=0; j<items.length; j++){
+            if(items[j].id === myCart[i].id) { itemData = items[j]; break; }
+        }
+        if(itemData){
+            totalCount += myCart[i].qty;
+            totalPrice += (itemData.price * myCart[i].qty);
+            cHtml += 
+                '<div class="cart-item">' +
+                    '<div class="cart-img"><img src="' + itemData.img + '"></div>' +
+                    '<div class="cart-info">' +
+                        '<div class="cart-name">' + itemData.name + '</div>' +
+                        '<div class="cart-price">' + (itemData.price * myCart[i].qty) + ' ر.س</div>' +
+                        '<div class="qty">' +
+                            '<button onclick="modQty(' + itemData.id + ',1)">+</button>' +
+                            '<span>' + myCart[i].qty + '</span>' +
+                            '<button onclick="modQty(' + itemData.id + ',-1)">-</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<button class="delete" onclick="delItem(' + itemData.id + ')">🗑️</button>' +
+                '</div>';
+        }
+    }
+
+    document.getElementById("cartCount").innerText = totalCount;
+    var cartItemsBox = document.getElementById("cartItems");
+    var cartTotalBox = document.getElementById("cartTotal");
+
+    if(myCart.length === 0){
+        cartItemsBox.innerHTML = '<div class="empty"><h2>السلة فارغة</h2></div>';
+        cartTotalBox.innerHTML = '';
+    } else {
+        cartItemsBox.innerHTML = cHtml;
+        cartTotalBox.innerHTML = 
+            '<div class="total-box">' +
+                '<div class="total-line"><span>المجموع:</span><span style="color:#00ff9d">' + totalPrice + ' ر.س</span></div>' +
+                '<button class="checkout" onclick="alert(\'تم استلام طلبك التجريبي بنجاح!\')">إتمام الشراء</button>' +
+            '</div>';
+    }
+}
+
+function modQty(id, delta){
+    for(var i=0; i<myCart.length; i++){
+        if(myCart[i].id === id){
+            myCart[i].qty += delta;
+            if(myCart[i].qty <= 0) myCart.splice(i,1);
+            break;
+        }
+    }
+    updateCartUI();
+}
+
+function delItem(id){
+    for(var i=0; i<myCart.length; i++){
+        if(myCart[i].id === id){
+            myCart.splice(i,1);
+            break;
+        }
+    }
+    updateCartUI();
+}
+
+function showPage(pId, btn){
+    var pages = document.querySelectorAll(".page");
+    for(var i=0; i<pages.length; i++) pages[i].classList.remove("active");
+    var target = document.getElementById(pId);
+    if(target) target.classList.add("active");
+
+    var navBtns = document.querySelectorAll("nav button");
+    for(var j=0; j<navBtns.length; j++) navBtns[j].classList.remove("active");
+    if(btn) btn.classList.add("active");
+
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function searchProducts(){
+    var q = document.getElementById("search").value.toLowerCase();
+    var home = document.getElementById("homeProducts");
+    var sHtml = "";
+    var count = 0;
+    for(var i=0; i<items.length; i++){
+        if(items[i].name.toLowerCase().indexOf(q) > -1 || items[i].brand.toLowerCase().indexOf(q) > -1){
+            sHtml += cardHtml(items[i]);
+            count++;
+        }
+    }
+    showPage("home");
+    if(count === 0){
+        home.innerHTML = '<div class="empty">لا توجد منتجات تطابق بحثك</div>';
+    } else {
+        home.innerHTML = sHtml;
+    }
+}
+
+function showToastMsg(txt){
+    var t = document.getElementById("toast");
+    t.innerText = txt;
+    t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 1500);
+}
+
+loadAll();
+updateCartUI();
+</script>
+
+</body>
+</html>
